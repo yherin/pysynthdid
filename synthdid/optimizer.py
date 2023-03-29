@@ -220,7 +220,7 @@ class Optimize(object):
     def _zeta_given_cv_loss(self, zeta, cv=5, split_type="KFold"):
         nrow = self.Y_pre_c.shape[0]
         if split_type == "KFold":
-            kf = KFold(n_splits=cv, random_state=self.random_seed)
+            kf = KFold(n_splits=cv, random_state=self.random_seed, shuffle=True)
         elif split_type == "TimeSeriesSplit":
             kf = TimeSeriesSplit(n_splits=cv)
         elif split_type == "RepeatedKFold":
